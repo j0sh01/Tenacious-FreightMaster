@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-04 13:25:27.449543",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_i17a",
+  "customer",
+  "main_agent",
+  "column_break_wvmm",
+  "received_date",
+  "branch_agent",
+  "section_break_yhay",
+  "goods_details",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_i17a",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "goods_details",
+   "fieldtype": "Table",
+   "label": "Goods Details",
+   "options": "Goods Details"
+  },
+  {
+   "fieldname": "column_break_wvmm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "received_date",
+   "fieldtype": "Date",
+   "label": "Received Date"
+  },
+  {
+   "fieldname": "section_break_yhay",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Goods Receipt",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "main_agent",
+   "fieldtype": "Link",
+   "label": "Main Agent",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "branch_agent",
+   "fieldtype": "Link",
+   "label": "Branch Agent",
+   "options": "Employee"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-11-04 16:00:15.488916",
+ "modified_by": "Administrator",
+ "module": "Tenacious FreightMaster",
+ "name": "Goods Receipt",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

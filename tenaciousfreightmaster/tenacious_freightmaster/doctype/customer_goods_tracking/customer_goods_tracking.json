@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-04 14:22:43.557102",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "column_break_xzik",
+  "expected_delivery_date",
+  "section_break_wwly",
+  "goods_receipt_reference",
+  "status",
+  "column_break_srgl",
+  "current_location",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "column_break_xzik",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expected_delivery_date",
+   "fieldtype": "Date",
+   "label": "Expected Delivery Date"
+  },
+  {
+   "fieldname": "section_break_wwly",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "goods_receipt_reference",
+   "fieldtype": "Link",
+   "label": "Goods Receipt Reference",
+   "options": "Goods Receipt"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "\nWaiting\nIn Transit\nDelivered."
+  },
+  {
+   "fieldname": "column_break_srgl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "current_location",
+   "fieldtype": "Geolocation",
+   "label": "Current Location"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Customer Goods Tracking",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-11-04 16:01:27.102711",
+ "modified_by": "Administrator",
+ "module": "Tenacious FreightMaster",
+ "name": "Customer Goods Tracking",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

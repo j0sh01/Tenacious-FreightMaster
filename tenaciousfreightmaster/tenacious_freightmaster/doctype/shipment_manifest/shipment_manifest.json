@@ -1,0 +1,114 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-04 13:49:10.779445",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_cdri",
+  "customer",
+  "shipment_date",
+  "destination",
+  "column_break_kzhy",
+  "vehicle",
+  "agent",
+  "reference_vehicle_log",
+  "section_break_hkkf",
+  "manifest_details",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_cdri",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "shipment_date",
+   "fieldtype": "Date",
+   "label": "Shipment Date"
+  },
+  {
+   "fieldname": "column_break_kzhy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "options": "Vehicle"
+  },
+  {
+   "fieldname": "destination",
+   "fieldtype": "Link",
+   "label": "Destination",
+   "options": "Destination"
+  },
+  {
+   "fieldname": "agent",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Agent",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "section_break_hkkf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "manifest_details",
+   "fieldtype": "Table",
+   "label": "Manifest Details",
+   "options": "Manifest Details"
+  },
+  {
+   "fieldname": "reference_vehicle_log",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Reference Vehicle Log",
+   "options": "Vehicle Log"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Shipment Manifest",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-11-04 16:01:52.831443",
+ "modified_by": "Administrator",
+ "module": "Tenacious FreightMaster",
+ "name": "Shipment Manifest",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

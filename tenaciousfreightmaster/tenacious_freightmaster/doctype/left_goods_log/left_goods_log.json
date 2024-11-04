@@ -1,0 +1,92 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-04 15:10:25.486071",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_rzk1",
+  "customer",
+  "column_break_hzhx",
+  "shipment_manifest",
+  "posting_date",
+  "section_break_bqxs",
+  "left_goods_details",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_rzk1",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "column_break_hzhx",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "shipment_manifest",
+   "fieldtype": "Link",
+   "label": "Shipment Manifest",
+   "options": "Shipment Manifest"
+  },
+  {
+   "fieldname": "section_break_bqxs",
+   "fieldtype": "Section Break",
+   "label": "Goods Details"
+  },
+  {
+   "fieldname": "left_goods_details",
+   "fieldtype": "Table",
+   "label": "Left Goods Details",
+   "options": "Left Goods Details"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Left Goods Log",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "label": "Posting Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-11-04 16:02:03.054688",
+ "modified_by": "Administrator",
+ "module": "Tenacious FreightMaster",
+ "name": "Left Goods Log",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
