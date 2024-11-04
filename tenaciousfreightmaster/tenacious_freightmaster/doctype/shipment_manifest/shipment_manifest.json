@@ -6,6 +6,7 @@
  "engine": "InnoDB",
  "field_order": [
   "section_break_cdri",
+  "reference_goods_receipt",
   "customer",
   "shipment_date",
   "destination",
@@ -44,8 +45,9 @@
    "options": "Destination"
   },
   {
+   "fetch_from": "reference_goods_receipt.branch_agent_name",
    "fieldname": "agent",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "in_standard_filter": 1,
    "label": "Agent",
    "options": "Employee"
@@ -78,16 +80,22 @@
    "search_index": 1
   },
   {
+   "fetch_from": "reference_goods_receipt.customer",
    "fieldname": "customer",
+   "fieldtype": "Data",
+   "label": "Customer"
+  },
+  {
+   "fieldname": "reference_goods_receipt",
    "fieldtype": "Link",
-   "label": "Customer",
-   "options": "Customer"
+   "label": "Reference Goods Receipt",
+   "options": "Goods Receipt"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-04 16:01:52.831443",
+ "modified": "2024-11-04 16:58:34.698489",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Shipment Manifest",

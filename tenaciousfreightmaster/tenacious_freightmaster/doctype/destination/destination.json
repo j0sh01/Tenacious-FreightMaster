@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:destination",
  "creation": "2024-11-04 13:37:25.970031",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -12,7 +13,8 @@
   {
    "fieldname": "destination",
    "fieldtype": "Data",
-   "label": "Destination"
+   "label": "Destination",
+   "unique": 1
   },
   {
    "fieldname": "description",
@@ -22,10 +24,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-04 13:38:13.348552",
+ "modified": "2024-11-04 16:36:27.684072",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Destination",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

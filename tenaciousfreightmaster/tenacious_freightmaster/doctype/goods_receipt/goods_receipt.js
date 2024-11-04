@@ -6,3 +6,12 @@
 
 // 	},
 // });
+
+frappe.ui.form.on('Goods Receipt', {
+    onload: function(frm) {
+        // Set the main_agent field to the current logged-in user if it's empty
+        if (!frm.doc.main_agent) {
+            frm.set_value('main_agent', frappe.session.user);
+        }
+    }
+});

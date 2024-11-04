@@ -20,8 +20,9 @@
  "fields": [
   {
    "fieldname": "vehicle_id",
-   "fieldtype": "Data",
-   "label": "Vehicle ID"
+   "fieldtype": "Link",
+   "label": "Vehicle ID",
+   "options": "Vehicle"
   },
   {
    "fieldname": "departure_datetime",
@@ -77,7 +78,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-04 16:01:02.967601",
+ "modified": "2024-11-04 17:00:42.626392",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Vehicle Log",
