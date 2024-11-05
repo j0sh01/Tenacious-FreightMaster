@@ -15,3 +15,28 @@ frappe.ui.form.on('Goods Receipt', {
         }
     }
 });
+
+frappe.ui.form.on('Goods Receipt', {
+    onload: function(frm) {
+        if (!frm.doc.received_date) {
+            frm.set_value('received_date', frappe.datetime.get_today());
+        }
+    }
+});
+
+frappe.ui.form.on('Goods Details', {
+    quantity: function(frm, cdt, cdn) {
+        calculate_amount(frm, cdt, cdn);
+    },
+    rate: function(frm, cdt, cdn) {
+        calculate_amount(frm, cdt, cdn);
+    }
+});
+
+function calculate_amount(frm, cdt, cdn) {
+    let row = frappe.get_doc(cdt, cdn);
+    if (row.quantity && row.rate) {
+        row.amount = row.quantity * row.rate;
+        frm.refresh_field("goods_details");  // Assuming 'goods_details' is the child table field name
+    }
+}
