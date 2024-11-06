@@ -242,3 +242,17 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+
+# tenaciousfreightmaster/hooks.py
+
+doc_events = {
+    "Goods Receipt": {
+        "on_submit": "tenaciousfreightmaster.tenacious_freightmaster.doctype.goods_receipt.goods_receipt.create_delivery_note"
+    }
+}
+
+doc_events = {
+    "Shipment Manifest": {
+        "on_submit": "tenaciousfreightmaster.tenacious_freightmaster.doctype.shipment_manifest.shipment_manifest.create_left_goods_log"
+    }
+}

@@ -8,14 +8,15 @@
   "vehicle_id",
   "departure_datetime",
   "destination",
-  "manifest_reference",
   "column_break_pjqc",
   "driver",
   "return_datetime",
   "section_break_kivk",
   "status",
   "column_break_hium",
-  "notes"
+  "notes",
+  "details_section",
+  "vehicle_log_details"
  ],
  "fields": [
   {
@@ -34,12 +35,6 @@
    "fieldtype": "Link",
    "label": "Destination",
    "options": "Destination"
-  },
-  {
-   "fieldname": "manifest_reference",
-   "fieldtype": "Link",
-   "label": "Manifest Reference",
-   "options": "Shipment Manifest"
   },
   {
    "fieldname": "column_break_pjqc",
@@ -74,11 +69,22 @@
    "fieldname": "notes",
    "fieldtype": "Text",
    "label": "Notes"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "vehicle_log_details",
+   "fieldtype": "Table",
+   "label": "Vehicle Log Details",
+   "options": "Vehicle Log Details"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-04 17:00:42.626392",
+ "modified": "2024-11-06 17:01:26.909722",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Vehicle Log",
