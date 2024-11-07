@@ -245,11 +245,12 @@ app_license = "mit"
 
 # tenaciousfreightmaster/hooks.py
 
-doc_events = {
-    "Goods Receipt": {
-        "on_submit": "tenaciousfreightmaster.tenacious_freightmaster.doctype.goods_receipt.goods_receipt.create_delivery_note"
-    }
-}
+# doc_events = {
+#     "Goods Receipt": {
+#         "on_submit": "tenaciousfreightmaster.tenacious_freightmaster.doctype.goods_receipt.goods_receipt.create_delivery_note"
+#     }
+# }
+
 
 doc_events = {
     "Shipment Manifest": {

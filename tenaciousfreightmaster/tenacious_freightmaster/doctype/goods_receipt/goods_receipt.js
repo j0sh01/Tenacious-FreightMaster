@@ -40,3 +40,38 @@ function calculate_amount(frm, cdt, cdn) {
         frm.refresh_field("goods_details");  // Assuming 'goods_details' is the child table field name
     }
 }
+
+
+frappe.ui.form.on("Goods Receipt", {
+    refresh: function(frm) {
+        if (!frm.doc.delivery_note) {
+            frm.add_custom_button(__('Create Delivery Note'), function() {
+                // Refresh the form first to avoid stale data
+                frm.refresh();
+
+                // Now call the server method to create the Delivery Note
+                frappe.call({
+                    method: "tenaciousfreightmaster.tenacious_freightmaster.doctype.goods_receipt.goods_receipt.create_delivery_note",
+                    args: {
+                        doc_name: frm.doc.name
+                    },
+                    callback: function(r) {
+                        if (r.message) {
+                            frm.set_value("delivery_note", r.message); // Set the created Delivery Note ID
+                            frm.save();
+
+                            // Reload the document to get the latest version from the server
+                            frappe.model.reload_doc(frm.doctype, frm.doc.name);
+
+                            frappe.show_alert({message: __("Delivery Note created: " + r.message), indicator: 'green'});
+                        }
+                    }
+                });
+            });
+        } else {
+            frm.add_custom_button(__('View Delivery Note'), function() {
+                frappe.set_route('Form', 'Delivery Note', frm.doc.delivery_note);
+            });
+        }
+    }
+});
