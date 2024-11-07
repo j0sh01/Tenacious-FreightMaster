@@ -44,7 +44,8 @@ function calculate_amount(frm, cdt, cdn) {
 
 frappe.ui.form.on("Goods Receipt", {
     refresh: function(frm) {
-        if (!frm.doc.delivery_note) {
+        // Check if the document is submitted
+        if (frm.doc.docstatus == 1 && !frm.doc.delivery_note) {
             frm.add_custom_button(__('Create Delivery Note'), function() {
                 // Refresh the form first to avoid stale data
                 frm.refresh();
@@ -57,18 +58,17 @@ frappe.ui.form.on("Goods Receipt", {
                     },
                     callback: function(r) {
                         if (r.message) {
-                            frm.set_value("delivery_note", r.message); // Set the created Delivery Note ID
-                            frm.save();
-
-                            // Reload the document to get the latest version from the server
-                            frappe.model.reload_doc(frm.doctype, frm.doc.name);
-
-                            frappe.show_alert({message: __("Delivery Note created: " + r.message), indicator: 'green'});
+                            // Set the created Delivery Note ID directly
+                            frappe.db.set_value("Goods Receipt", frm.doc.name, "delivery_note", r.message)
+                                .then(() => {
+                                    frappe.show_alert({message: __("Delivery Note created: " + r.message), indicator: 'green'});
+                                });
                         }
                     }
                 });
             });
-        } else {
+        } else if (frm.doc.delivery_note) {
+            // If the delivery note is already created, show a button to view it
             frm.add_custom_button(__('View Delivery Note'), function() {
                 frappe.set_route('Form', 'Delivery Note', frm.doc.delivery_note);
             });
