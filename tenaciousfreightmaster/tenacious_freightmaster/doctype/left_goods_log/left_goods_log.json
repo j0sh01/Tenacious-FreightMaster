@@ -93,10 +93,11 @@
    "read_only": 1
   }
  ],
+ "in_create": 1,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-07 14:22:57.220601",
+ "modified": "2024-11-07 17:42:26.237596",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Left Goods Log",
