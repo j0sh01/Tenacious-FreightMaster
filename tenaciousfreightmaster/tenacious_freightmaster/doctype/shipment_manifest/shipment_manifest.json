@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:SM-YYYY-MM-#####",
+ "autoname": "format:SM-{YYYY}-{MM}-{#####}",
  "creation": "2024-11-04 13:49:10.779445",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -10,7 +10,6 @@
   "reference_goods_receipt",
   "customer",
   "shipment_date",
-  "destination",
   "column_break_kzhy",
   "vehicle",
   "agent",
@@ -39,12 +38,6 @@
    "fieldtype": "Link",
    "label": "Vehicle",
    "options": "Vehicle"
-  },
-  {
-   "fieldname": "destination",
-   "fieldtype": "Link",
-   "label": "Destination",
-   "options": "Destination"
   },
   {
    "fetch_from": "reference_goods_receipt.branch_agent_name",
@@ -97,7 +90,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-07 10:08:31.673575",
+ "modified": "2024-11-07 12:20:08.517899",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Shipment Manifest",

@@ -23,6 +23,7 @@ def create_shipment_for_left_goods(left_goods_log_name):
         # Create a new Shipment Manifest with zero-cost items
         shipment_manifest = frappe.new_doc("Shipment Manifest")
         shipment_manifest.customer = left_goods_log.customer
+        shipment_manifest.reference_goods_receipt = left_goods_log.goods_receipt
         shipment_manifest.posting_date = frappe.utils.nowdate()
 
         # Add items with zero cost

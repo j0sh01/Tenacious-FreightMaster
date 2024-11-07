@@ -48,6 +48,7 @@ frappe.ui.form.on('Shipment Manifest', {
                             child.item_name = item.item_name;
                             child.quantity = item.quantity;
                             child.uom = item.uom;
+                            child.destination = item.destination;
                             child.shipping_charges = item.amount;
                         });
                         frm.refresh_field('manifest_details');

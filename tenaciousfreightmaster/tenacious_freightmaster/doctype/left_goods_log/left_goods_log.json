@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:LGL-{YYYY}-{MM}-{#####}",
  "creation": "2024-11-04 16:24:55.495263",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -9,7 +10,6 @@
   "customer",
   "goods_receipt",
   "status",
-  "is_left_goods_shipment",
   "column_break_hzhx",
   "shipment_manifest",
   "log_date",
@@ -91,22 +91,16 @@
    "fieldtype": "Data",
    "label": "Status",
    "read_only": 1
-  },
-  {
-   "default": "0",
-   "fieldname": "is_left_goods_shipment",
-   "fieldtype": "Check",
-   "label": "Is Left Goods Shipment"
   }
  ],
- "in_create": 1,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-06 18:38:45.394399",
+ "modified": "2024-11-07 14:22:57.220601",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Left Goods Log",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
