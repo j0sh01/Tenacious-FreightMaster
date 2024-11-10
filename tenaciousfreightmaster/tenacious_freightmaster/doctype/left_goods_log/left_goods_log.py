@@ -24,7 +24,7 @@ class LeftGoodsLog(Document):
             new_shipment_manifest.append('manifest_details', {
                 'item_name': item_details.item_name,
                 'quantity': item_details.quantity_left,
-                # 'uom': item_details.uom
+                'uom': item_details.uom
             })
 
         new_shipment_manifest.insert()

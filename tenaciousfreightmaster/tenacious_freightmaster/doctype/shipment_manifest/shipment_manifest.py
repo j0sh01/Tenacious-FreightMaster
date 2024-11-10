@@ -35,6 +35,7 @@ def create_left_goods_log(doc, method):
                                 'quantity_submitted': 0,
                                 'quantity_shipped': 0,
                                 'quantity_left': 0,
+                                'uom': gr_item.uom,
                                 'remarks': f"Discrepancy found for {gr_item.item_name}"
                             }
                         left_goods_details[gr_item.item_name]['quantity_submitted'] += quantity_submitted
