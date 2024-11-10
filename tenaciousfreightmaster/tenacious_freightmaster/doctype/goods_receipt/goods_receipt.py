@@ -5,8 +5,22 @@ import frappe
 from frappe.model.document import Document
 
 class GoodsReceipt(Document):
-    def before_save(self):
-        pass
+    def on_submit(self):
+        self.status = "Available for Shipment"
+        
+    def validate(self):
+        if self.is_new() or self.docstatus == 0:
+            self.status = "Available for Shipment"
+            
+    def get_status(self):
+        '''
+        Status can only be:
+        - Available for Shipment
+        - Shipped
+        '''
+        if self.shipment_manifest:
+            return "Shipped"
+        return "Available for Shipment"
 
 @frappe.whitelist()
 def create_delivery_note(doc_name):
@@ -42,3 +56,39 @@ def create_delivery_note(doc_name):
 
     # Return the created Delivery Note ID to update the field on the client side
     return delivery_note.name
+
+
+@frappe.whitelist()
+def create_shipment_manifest(doc_name):
+    # Load the Goods Receipt document
+    doc = frappe.get_doc("Goods Receipt", doc_name)
+
+    # Check if a Shipment Manifest already exists
+    if doc.shipment_manifest:
+        frappe.msgprint(_("A Shipment Manifest has already been created for this Goods Receipt."), alert=True)
+        return None
+
+    # Create a new Shipment Manifest
+    shipment_manifest = frappe.new_doc("Shipment Manifest")
+    shipment_manifest.reference_goods_receipt = doc.name
+    shipment_manifest.customer = doc.customer
+
+    # Copy items from Goods Receipt to Shipment Manifest
+    for item in doc.goods_details:
+        shipment_manifest.append("manifest_details", {
+            "item_name": item.item_name,
+            "quantity": item.quantity,
+            "uom": item.uom,
+            "destination": item.destination,
+            "shipping_charges": item.amount
+        })
+
+    # Save the Shipment Manifest
+    shipment_manifest.insert()
+
+    # Update the Goods Receipt status and link
+    doc.db_set("shipment_manifest", shipment_manifest.name)
+    doc.db_set("status", "Shipped")
+
+    # Return the created Shipment Manifest ID
+    return shipment_manifest.name
