@@ -63,6 +63,7 @@ frappe.ui.form.on("Goods Receipt", {
                                 .then(() => {
                                     frappe.show_alert({message: __("Delivery Note created: " + r.message), indicator: 'green'});
                                 });
+                                frappe.set_route('Form', 'Delivery Note', r.message);
                         }
                     }
                 });

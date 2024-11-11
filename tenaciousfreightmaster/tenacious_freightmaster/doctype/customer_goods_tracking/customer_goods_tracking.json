@@ -12,7 +12,6 @@
   "goods_receipt_reference",
   "status",
   "column_break_srgl",
-  "current_location",
   "amended_from"
  ],
  "fields": [
@@ -52,11 +51,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "current_location",
-   "fieldtype": "Geolocation",
-   "label": "Current Location"
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -70,7 +64,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-04 16:01:27.102711",
+ "modified": "2024-11-11 14:42:52.323033",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Customer Goods Tracking",
