@@ -6,11 +6,10 @@
  "engine": "InnoDB",
  "field_order": [
   "vehicle_id",
-  "departure_datetime",
   "destination",
   "column_break_pjqc",
   "driver",
-  "return_datetime",
+  "log_date",
   "section_break_kivk",
   "status",
   "column_break_hium",
@@ -24,11 +23,6 @@
    "fieldtype": "Link",
    "label": "Vehicle ID",
    "options": "Vehicle"
-  },
-  {
-   "fieldname": "departure_datetime",
-   "fieldtype": "Datetime",
-   "label": "Departure Date/Time"
   },
   {
    "fieldname": "destination",
@@ -45,11 +39,6 @@
    "fieldtype": "Link",
    "label": "Driver",
    "options": "Driver"
-  },
-  {
-   "fieldname": "return_datetime",
-   "fieldtype": "Datetime",
-   "label": "Return Date/Time"
   },
   {
    "fieldname": "section_break_kivk",
@@ -80,11 +69,16 @@
    "fieldtype": "Table",
    "label": "Vehicle Log Details",
    "options": "Vehicle Log Details"
+  },
+  {
+   "fieldname": "log_date",
+   "fieldtype": "Date",
+   "label": "Log Date"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-06 17:01:26.909722",
+ "modified": "2024-11-12 12:32:18.118939",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Vehicle Log",

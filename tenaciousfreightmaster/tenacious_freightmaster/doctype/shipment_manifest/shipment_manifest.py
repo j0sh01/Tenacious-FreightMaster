@@ -3,6 +3,8 @@
 
 import frappe
 from frappe.model.document import Document
+from frappe.utils import nowdate
+
 
 class ShipmentManifest(Document):
     pass
@@ -57,3 +59,46 @@ def create_left_goods_log(doc, method):
     except Exception as e:
         frappe.log_error(e, "Error in create_left_goods_log")
         frappe.msgprint(f"Error: {str(e)}")
+
+
+
+def create_or_update_vehicle_log(doc, method):
+    # Get today's date
+    today_date = nowdate()
+    
+    # Check if there's an existing Vehicle Log for the selected vehicle on the current date
+    vehicle_log = frappe.db.get_value("Vehicle Log", 
+                                      {"vehicle_id": doc.vehicle, "log_date": today_date}, 
+                                      "name")
+    
+    if vehicle_log:
+        # Fetch the existing Vehicle Log document
+        vehicle_log_doc = frappe.get_doc("Vehicle Log", vehicle_log)
+        
+        # Check if this Shipment Manifest is already logged to avoid duplicates
+        existing_manifest = any(detail.reference_shipment_manifest == doc.name 
+                                for detail in vehicle_log_doc.vehicle_log_details)
+        if not existing_manifest:
+            # Add the Shipment Manifest to the child table
+            vehicle_log_doc.append("vehicle_log_details", {
+                "reference_shipment_manifest": doc.name,
+                "shipping_date": doc.shipment_date
+            })
+            vehicle_log_doc.save()
+            frappe.msgprint(f"Shipment Manifest added to existing Vehicle Log: {vehicle_log_doc.name}")
+    else:
+        # Create a new Vehicle Log for today
+        vehicle_log_doc = frappe.new_doc("Vehicle Log")
+        vehicle_log_doc.vehicle_id = doc.vehicle
+        vehicle_log_doc.log_date = today_date
+        vehicle_log_doc.status = "In Transit"  # or set as appropriate
+        
+        # Add the Shipment Manifest to the child table
+        vehicle_log_doc.append("vehicle_log_details", {
+            "reference_shipment_manifest": doc.name,
+            "shipping_date": doc.shipment_date
+        })
+        
+        # Insert and save the new Vehicle Log
+        vehicle_log_doc.insert()
+        frappe.msgprint(f"New Vehicle Log created: {vehicle_log_doc.name}")
