@@ -263,3 +263,7 @@ doc_events = {
         "on_submit": "tenaciousfreightmaster.tenacious_freightmaster.doctype.shipment_manifest.shipment_manifest.create_or_update_vehicle_log"
     }
 }
+
+website_route_rules = [
+    {"from_route": "/shipment-history", "to_route": "customer_shipment_history"}
+]
