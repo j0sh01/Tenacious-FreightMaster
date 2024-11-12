@@ -35,6 +35,7 @@ def create_delivery_note(doc_name):
     # Create a new Delivery Note
     delivery_note = frappe.new_doc("Delivery Note")
     delivery_note.customer = doc.customer
+    delivery_note.destination = doc.destination
     delivery_note.posting_date = doc.received_date  # Use the Goods Receipt date
 
     # Copy items from Goods Receipt to Delivery Note
@@ -72,6 +73,7 @@ def create_shipment_manifest(doc_name):
     shipment_manifest = frappe.new_doc("Shipment Manifest")
     shipment_manifest.reference_goods_receipt = doc.name
     shipment_manifest.customer = doc.customer
+    shipment_manifest.destination = doc.destination
 
     # Copy items from Goods Receipt to Shipment Manifest
     for item in doc.goods_details:

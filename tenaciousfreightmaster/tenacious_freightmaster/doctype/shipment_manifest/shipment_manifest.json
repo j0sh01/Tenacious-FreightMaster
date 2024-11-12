@@ -13,6 +13,7 @@
   "column_break_kzhy",
   "vehicle",
   "agent",
+  "destination",
   "reference_vehicle_log",
   "section_break_hkkf",
   "manifest_details",
@@ -85,12 +86,18 @@
    "fieldtype": "Link",
    "label": "Reference Goods Receipt",
    "options": "Goods Receipt"
+  },
+  {
+   "fieldname": "destination",
+   "fieldtype": "Link",
+   "label": "Destination",
+   "options": "Destination"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-07 12:20:08.517899",
+ "modified": "2024-11-12 14:30:05.114672",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Shipment Manifest",

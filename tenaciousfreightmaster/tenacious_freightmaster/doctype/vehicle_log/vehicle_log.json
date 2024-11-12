@@ -48,7 +48,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "\nIn Transit\nCompleted\nDelayed\nCancelled"
+   "options": "\nAwaiting\nIn Transit\nCompleted\nDelayed\nCancelled"
   },
   {
    "fieldname": "column_break_hium",
@@ -78,7 +78,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-12 12:32:18.118939",
+ "modified": "2024-11-12 14:45:55.375644",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Vehicle Log",

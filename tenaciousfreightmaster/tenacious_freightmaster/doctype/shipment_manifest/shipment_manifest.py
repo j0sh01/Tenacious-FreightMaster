@@ -18,6 +18,7 @@ def create_left_goods_log(doc, method):
         left_goods_log = frappe.new_doc('Left Goods Log')
         left_goods_log.customer = shipment_manifest.customer
         left_goods_log.shipment_manifest = doc.name
+        left_goods_log.destination = doc.destination
         left_goods_log.goods_receipt = shipment_manifest.reference_goods_receipt
         left_goods_log.log_date = frappe.utils.nowdate()  # Set today's date for the log
 
@@ -86,6 +87,11 @@ def create_or_update_vehicle_log(doc, method):
             })
             vehicle_log_doc.save()
             frappe.msgprint(f"Shipment Manifest added to existing Vehicle Log: {vehicle_log_doc.name}")
+        
+        # Update the reference_vehicle_log field in Shipment Manifest
+        doc.reference_vehicle_log = vehicle_log_doc.name
+        doc.db_set("reference_vehicle_log", vehicle_log_doc.name)  # save the update immediately
+    
     else:
         # Create a new Vehicle Log for today
         vehicle_log_doc = frappe.new_doc("Vehicle Log")
@@ -102,3 +108,9 @@ def create_or_update_vehicle_log(doc, method):
         # Insert and save the new Vehicle Log
         vehicle_log_doc.insert()
         frappe.msgprint(f"New Vehicle Log created: {vehicle_log_doc.name}")
+        
+        # Update the reference_vehicle_log field in Shipment Manifest
+        doc.reference_vehicle_log = vehicle_log_doc.name
+        doc.db_set("reference_vehicle_log", vehicle_log_doc.name)  # save the update immediately
+
+# Hook this function to be called on submit of the Shipment Manifest
