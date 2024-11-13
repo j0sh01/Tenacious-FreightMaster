@@ -76,9 +76,10 @@
    "label": "Log Date"
   }
  ],
+ "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-12 14:45:55.375644",
+ "modified": "2024-11-12 22:04:46.544666",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Vehicle Log",

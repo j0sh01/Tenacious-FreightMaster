@@ -8,6 +8,7 @@
  "field_order": [
   "section_break_cdri",
   "reference_goods_receipt",
+  "reference_left_goods",
   "customer",
   "shipment_date",
   "column_break_kzhy",
@@ -85,19 +86,27 @@
    "fieldname": "reference_goods_receipt",
    "fieldtype": "Link",
    "label": "Reference Goods Receipt",
-   "options": "Goods Receipt"
+   "options": "Goods Receipt",
+   "read_only": 1
   },
   {
    "fieldname": "destination",
    "fieldtype": "Link",
    "label": "Destination",
    "options": "Destination"
+  },
+  {
+   "fieldname": "reference_left_goods",
+   "fieldtype": "Link",
+   "label": "Reference Left Goods",
+   "options": "Left Goods Log",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-12 14:30:05.114672",
+ "modified": "2024-11-12 23:23:19.272362",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Shipment Manifest",
