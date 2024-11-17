@@ -22,6 +22,7 @@
   "section_break_ihso",
   "column_break_ijur",
   "column_break_wnsj",
+  "column_break_whwk",
   "total_shipping_charges"
  ],
  "fields": [
@@ -122,12 +123,16 @@
    "fieldname": "total_shipping_charges",
    "fieldtype": "Currency",
    "label": "Total Shipping Charges"
+  },
+  {
+   "fieldname": "column_break_whwk",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-17 14:57:24.411454",
+ "modified": "2024-11-17 15:54:08.559855",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Shipment Manifest",
