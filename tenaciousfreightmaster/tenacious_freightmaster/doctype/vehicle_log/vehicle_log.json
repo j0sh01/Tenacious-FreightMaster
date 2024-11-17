@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:VL-{YYYY}-{MM}-{#####}",
  "creation": "2024-11-04 13:58:40.648307",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -9,13 +10,19 @@
   "destination",
   "column_break_pjqc",
   "driver",
+  "driver_name",
   "log_date",
   "section_break_kivk",
   "status",
   "column_break_hium",
   "notes",
   "details_section",
-  "vehicle_log_details"
+  "vehicle_log_details",
+  "section_break_hlcz",
+  "column_break_wiet",
+  "column_break_cdlq",
+  "column_break_xfil",
+  "total_amount"
  ],
  "fields": [
   {
@@ -74,15 +81,42 @@
    "fieldname": "log_date",
    "fieldtype": "Date",
    "label": "Log Date"
+  },
+  {
+   "fieldname": "section_break_hlcz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_wiet",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_cdlq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount Shipped"
+  },
+  {
+   "fetch_from": "driver.full_name",
+   "fieldname": "driver_name",
+   "fieldtype": "Data",
+   "label": "Driver Name"
+  },
+  {
+   "fieldname": "column_break_xfil",
+   "fieldtype": "Column Break"
   }
  ],
- "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-12 22:04:46.544666",
+ "modified": "2024-11-17 15:29:57.359878",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Vehicle Log",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

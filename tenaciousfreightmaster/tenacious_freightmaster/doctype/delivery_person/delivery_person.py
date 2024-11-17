@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class LeftGoodsLog(Document):
-    pass
+class DeliveryPerson(Document):
+	pass

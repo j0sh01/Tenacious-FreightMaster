@@ -18,7 +18,11 @@
   "reference_vehicle_log",
   "section_break_hkkf",
   "manifest_details",
-  "amended_from"
+  "amended_from",
+  "section_break_ihso",
+  "column_break_ijur",
+  "column_break_wnsj",
+  "total_shipping_charges"
  ],
  "fields": [
   {
@@ -101,12 +105,29 @@
    "label": "Reference Left Goods",
    "options": "Left Goods Log",
    "read_only": 1
+  },
+  {
+   "fieldname": "section_break_ihso",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_ijur",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_wnsj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_shipping_charges",
+   "fieldtype": "Currency",
+   "label": "Total Shipping Charges"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-12 23:23:19.272362",
+ "modified": "2024-11-17 14:57:24.411454",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Shipment Manifest",

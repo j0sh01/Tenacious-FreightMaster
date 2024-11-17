@@ -4,6 +4,7 @@
 import frappe
 from frappe.model.document import Document
 from frappe.utils import nowdate
+from frappe import _ 
 
 
 class ShipmentManifest(Document):
@@ -83,7 +84,8 @@ def create_or_update_vehicle_log(doc, method):
             # Add the Shipment Manifest to the child table
             vehicle_log_doc.append("vehicle_log_details", {
                 "reference_shipment_manifest": doc.name,
-                "shipping_date": doc.shipment_date
+                "shipping_date": doc.shipment_date,
+                "destination": doc.destination
             })
             vehicle_log_doc.save()
             frappe.msgprint(f"Shipment Manifest added to existing Vehicle Log: {vehicle_log_doc.name}")
@@ -97,12 +99,13 @@ def create_or_update_vehicle_log(doc, method):
         vehicle_log_doc = frappe.new_doc("Vehicle Log")
         vehicle_log_doc.vehicle_id = doc.vehicle
         vehicle_log_doc.log_date = today_date
-        vehicle_log_doc.status = "In Transit"  # or set as appropriate
+        vehicle_log_doc.status = "Awaiting"  # or set as appropriate
         
         # Add the Shipment Manifest to the child table
         vehicle_log_doc.append("vehicle_log_details", {
             "reference_shipment_manifest": doc.name,
-            "shipping_date": doc.shipment_date
+            "shipping_date": doc.shipment_date,
+            "destination": doc.destination
         })
         
         # Insert and save the new Vehicle Log
@@ -114,3 +117,64 @@ def create_or_update_vehicle_log(doc, method):
         doc.db_set("reference_vehicle_log", vehicle_log_doc.name)  # save the update immediately
 
 # Hook this function to be called on submit of the Shipment Manifest
+
+# @frappe.whitelist()
+# def create_shipment_manifest_from_left_goods_log(left_goods_log):
+#     """
+#     Create a new Shipment Manifest from the Left Goods Log.
+#     """
+#     left_goods_log = frappe.get_doc('Left Goods Log', left_goods_log)
+
+#     new_shipment_manifest = frappe.new_doc('Shipment Manifest')
+#     new_shipment_manifest.customer = left_goods_log.customer
+#     new_shipment_manifest.status = 'Open'
+
+#     for item_details in left_goods_log.left_goods_details:
+#         new_shipment_manifest.append('manifest_details', {
+#             'item_name': item_details.item_name,
+#             'quantity': item_details.quantity_left,
+#             'uom': item_details.uom
+#         })
+
+#     new_shipment_manifest.insert()
+#     frappe.msgprint(f"New Shipment Manifest {new_shipment_manifest.name} has been created for the left goods.")
+
+
+@frappe.whitelist()
+def create_and_submit_shipment_manifest(left_goods_log_name):
+    """
+    Create a new Shipment Manifest from the Left Goods Log and submit it.
+    """
+    # Get the Left Goods Log document
+    left_goods_log = frappe.get_doc('Left Goods Log', left_goods_log_name)
+
+    # Ensure a shipment manifest doesn't already exist for the left goods log
+    if left_goods_log.shipment_manifest:
+        frappe.throw(_("A Shipment Manifest has already been created for this Left Goods Log."))
+
+    # Create a new Shipment Manifest document
+    shipment_manifest = frappe.new_doc('Shipment Manifest')
+    shipment_manifest.customer = left_goods_log.customer
+    shipment_manifest.status = 'Open'
+
+    # Add the left goods details to the new manifest
+    for item in left_goods_log.left_goods_details:
+        shipment_manifest.append('manifest_details', {
+            'item_name': item.item_name,
+            'quantity': item.quantity_left,
+            'uom': item.uom
+        })
+
+    # Insert the new manifest
+    shipment_manifest.insert()
+
+    # Submit the Shipment Manifest
+    shipment_manifest.submit()
+
+    # Update the Left Goods Log to mark it as "Shipped" and associate it with the manifest
+    left_goods_log.status = 'Shipped'
+    left_goods_log.shipment_manifest = shipment_manifest.name
+    left_goods_log.save()
+
+    # Return the name of the newly created Shipment Manifest for redirecting
+    return shipment_manifest.name

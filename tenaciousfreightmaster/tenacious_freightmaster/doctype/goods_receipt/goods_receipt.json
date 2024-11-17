@@ -11,6 +11,7 @@
   "main_agent",
   "delivery_note",
   "shipment_manifest",
+  "delivery_person",
   "column_break_wvmm",
   "received_date",
   "branch_agent",
@@ -67,7 +68,7 @@
   {
    "fieldname": "main_agent",
    "fieldtype": "Data",
-   "label": "Main Agent",
+   "label": "Consignee",
    "read_only": 1
   },
   {
@@ -120,12 +121,18 @@
    "fieldtype": "Link",
    "label": "Destination",
    "options": "Destination"
+  },
+  {
+   "fieldname": "delivery_person",
+   "fieldtype": "Link",
+   "label": "Delivery Person",
+   "options": "Delivery Person"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-12 14:29:04.527078",
+ "modified": "2024-11-17 14:15:58.881999",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Goods Receipt",

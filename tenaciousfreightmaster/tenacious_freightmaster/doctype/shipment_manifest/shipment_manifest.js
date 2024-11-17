@@ -58,3 +58,37 @@ frappe.ui.form.on('Shipment Manifest', {
         }
     }
 });
+
+
+frappe.ui.form.on('Shipment Manifest', {
+    refresh: function(frm) {
+        calculate_total_shipping_charges(frm); // Recalculate when form is refreshed
+    },
+    before_save: function(frm) {
+        calculate_total_shipping_charges(frm); // Ensure the total is updated before saving
+    }
+});
+
+frappe.ui.form.on('Manifest Details', {
+    shipping_charges: function(frm, cdt, cdn) {
+        calculate_total_shipping_charges(frm); // Recalculate when a row's shipping charge changes
+    },
+    manifest_details_remove: function(frm) {
+        calculate_total_shipping_charges(frm); // Recalculate when a row is removed
+    }
+});
+
+// Helper function to calculate total shipping charges
+function calculate_total_shipping_charges(frm) {
+    let total = 0;
+
+    // Sum up shipping charges from the child table
+    if (frm.doc.manifest_details) {
+        frm.doc.manifest_details.forEach(row => {
+            total += row.shipping_charges || 0;
+        });
+    }
+
+    // Update the parent field
+    frm.set_value('total_shipping_charges', total);
+}
