@@ -11,7 +11,6 @@
   "reference_left_goods",
   "customer",
   "shipment_date",
-  "description",
   "column_break_kzhy",
   "vehicle",
   "agent",
@@ -128,17 +127,12 @@
   {
    "fieldname": "column_break_whwk",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "description",
-   "fieldtype": "Text",
-   "label": "Description"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-17 16:27:26.454440",
+ "modified": "2024-11-18 13:54:23.800791",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Shipment Manifest",

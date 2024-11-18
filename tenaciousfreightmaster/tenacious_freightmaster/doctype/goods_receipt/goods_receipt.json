@@ -20,7 +20,12 @@
   "status",
   "section_break_yhay",
   "goods_details",
-  "amended_from"
+  "amended_from",
+  "section_break_efsn",
+  "column_break_qpms",
+  "column_break_qiaj",
+  "column_break_mysz",
+  "total_amount"
  ],
  "fields": [
   {
@@ -30,6 +35,7 @@
   {
    "fieldname": "customer",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Customer",
    "options": "Customer"
@@ -97,6 +103,7 @@
   {
    "fieldname": "delivery_note",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Delivery Note",
    "read_only": 1
@@ -104,6 +111,7 @@
   {
    "fieldname": "shipment_manifest",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Shipment Manifest",
    "options": "Shipment Manifest",
    "read_only": 1
@@ -119,6 +127,7 @@
   {
    "fieldname": "destination",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Destination",
    "options": "Destination"
   },
@@ -127,12 +136,35 @@
    "fieldtype": "Link",
    "label": "Delivery Person",
    "options": "Delivery Person"
+  },
+  {
+   "fieldname": "section_break_efsn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_qpms",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qiaj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_mysz",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-17 17:15:42.573947",
+ "modified": "2024-11-18 14:09:59.646458",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Goods Receipt",

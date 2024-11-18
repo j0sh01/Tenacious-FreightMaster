@@ -119,3 +119,33 @@ frappe.ui.form.on("Goods Receipt", {
         }
     }
 });
+
+frappe.ui.form.on('Goods Receipt', {
+    before_save: function(frm) {
+        calculate_total_amount(frm); // Ensure the total is updated before saving
+    }
+});
+
+frappe.ui.form.on('Goods Details', {
+    amount: function(frm, cdt, cdn) {
+        calculate_total_amount(frm); // Recalculate when a row's shipping charge changes
+    },
+    amount_remove: function(frm) {
+        calculate_total_amount(frm); // Recalculate when a row is removed
+    }
+});
+
+// Helper function to calculate total amount
+function calculate_total_amount(frm) {
+    let total = 0;
+
+    // Sum up shipping charges from the child table
+    if (frm.doc.goods_details) {
+        frm.doc.goods_details.forEach(row => {
+            total += row.amount || 0;
+        });
+    }
+
+    // Update the parent field
+    frm.set_value('total_amount', total);
+}
