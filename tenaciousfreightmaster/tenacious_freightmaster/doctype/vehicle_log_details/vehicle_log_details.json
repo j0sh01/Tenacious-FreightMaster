@@ -8,12 +8,15 @@
  "field_order": [
   "reference_shipment_manifest",
   "shipping_date",
-  "shipping_charges"
+  "shipping_charges",
+  "customer",
+  "destination"
  ],
  "fields": [
   {
    "fieldname": "reference_shipment_manifest",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Reference Shipment Manifest",
    "options": "Shipment Manifest"
   },
@@ -21,19 +24,37 @@
    "fetch_from": "reference_shipment_manifest.shipment_date",
    "fieldname": "shipping_date",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Shipping Date"
   },
   {
    "fetch_from": "reference_shipment_manifest.total_shipping_charges",
    "fieldname": "shipping_charges",
    "fieldtype": "Currency",
+   "in_list_view": 1,
    "label": "Shipping Charges"
+  },
+  {
+   "fetch_from": "reference_shipment_manifest.customer",
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fetch_from": "reference_shipment_manifest.destination",
+   "fieldname": "destination",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Destination",
+   "options": "Destination"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-11-17 15:00:45.373351",
+ "modified": "2024-11-18 11:06:41.374288",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Vehicle Log Details",

@@ -7,61 +7,35 @@
 // 	},
 // });
 
-// Custom Script: LeftGoodsLog
-// frappe.ui.form.on('Left Goods Log', {
-//     refresh: function(frm) {
-//         frm.add_custom_button(__('Create New Shipment Manifest'), function() {
-//             frm.call('create_new_shipment_manifest');
-//         });
-//     }
-// });
-
-
-
-
-// frappe.ui.form.on('Left Goods Log', {
-//     refresh: function(frm) {
-//         frm.add_custom_button(__('Create Shipment Manifest'), function() {
-//             frappe.call({
-//                 method: "tenaciousfreightmaster.tenacious_freightmaster.doctype.shipment_manifest.shipment_manifest.create_shipment_manifest_from_left_goods_log",
-//                 args: {
-//                     left_goods_log: frm.doc.name
-//                 },
-//                 callback: function(r) {
-//                     if (!r.exc) {
-//                         frappe.msgprint(__("New Shipment Manifest created."));
-//                     }
-//                 }
-//             });
-//         });
-//     }
-// });
-
-
-
 frappe.ui.form.on('Left Goods Log', {
     refresh: function(frm) {
-        // Add custom button to trigger shipment manifest creation
-        if (frm.doc.status !== 'Shipped') {
+        // Show button to create shipment manifest only if the status is "Manifest Left"
+        if (frm.doc.status === 'Manifest Left' && !frm.doc.reference_shipment_manifest) {
             frm.add_custom_button(__('Create Shipment Manifest'), function() {
-                // Call the server method to create and submit the Shipment Manifest
-                frappe.call({
-                    method: 'tenaciousfreightmaster.tenacious_freightmaster.doctype.shipment_manifest.shipment_manifest.create_and_submit_shipment_manifest',
-                    args: {
-                        left_goods_log_name: frm.doc.name
-                    },
-                    callback: function(r) {
-                        if (!r.exc) {
-                            // Success message
-                            frappe.msgprint(__('Shipment Manifest has been created and submitted.'));
-                            // Optionally, redirect to the new Shipment Manifest
-                            frappe.set_route('Form', 'Shipment Manifest', r.message);
-                        } else {
-                            frappe.msgprint(__('Failed to create and submit Shipment Manifest.'));
-                        }
-                    }
-                });
+                create_shipment_manifest(frm);
             });
         }
     }
 });
+
+// Function to create Shipment Manifest from Left Goods Log
+function create_shipment_manifest(frm) {
+    // Call server-side method to create shipment manifest
+    frappe.call({
+        method: "tenaciousfreightmaster.tenacious_freightmaster.doctype.left_goods_log.left_goods_log.create_shipment_manifest_from_left_goods_log",
+        args: {
+            doc_name: frm.doc.name
+        },
+        callback: function(r) {
+            if (r.message) {
+                // Update the reference field with the newly created Shipment Manifest ID
+                frm.set_value('reference_shipment_manifest', r.message);
+                frm.set_value('status', 'Shipped'); // Update the status to Shipped
+                frm.save();
+                frappe.msgprint(__('Shipment Manifest created and status updated to Shipped'));
+                // Optionally, navigate to the Shipment Manifest form
+                frappe.set_route('Form', 'Shipment Manifest', r.message);
+            }
+        }
+    });
+}

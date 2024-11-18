@@ -21,6 +21,7 @@
    "label": "Phone Number"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "delivery_person",
    "fieldtype": "Data",
    "label": "Name",
@@ -29,7 +30,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-17 14:05:07.994990",
+ "modified": "2024-11-18 11:26:05.263256",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Delivery Person",
@@ -49,6 +50,7 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
