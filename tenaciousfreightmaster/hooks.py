@@ -275,9 +275,7 @@ doc_events = {
     }
 }
 
-website_route_rules = [
-    {"from_route": "/shipment-history", "to_route": "customer_shipment_history"}
-]
 
 
+web_include_js = "/assets/tenaciousfreightmaster/js/customer_history.js"
     
