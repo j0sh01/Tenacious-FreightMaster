@@ -282,12 +282,8 @@ doc_events = {
             "tenaciousfreightmaster.tenacious_freightmaster.doctype.shipment_manifest.shipment_manifest.create_or_update_vehicle_log"
         ]
     },
-    # "Left Goods Log": {
-    #     "on_submit": [
-    #         "tenaciousfreightmaster.tenacious_freightmaster.doctype.left_goods_log.left_goods_log.create_shipment_manifest_from_left_goods_log"
-    #     ]
-    # }
 }
+
 
 
 

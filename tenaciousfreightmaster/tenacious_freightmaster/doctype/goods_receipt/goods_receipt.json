@@ -20,12 +20,12 @@
   "status",
   "section_break_yhay",
   "goods_details",
-  "amended_from",
   "section_break_efsn",
   "column_break_qpms",
   "column_break_qiaj",
   "column_break_mysz",
-  "total_amount"
+  "total_amount",
+  "amended_from"
  ],
  "fields": [
   {
@@ -38,7 +38,8 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Customer",
-   "options": "Customer"
+   "options": "Customer",
+   "reqd": 1
   },
   {
    "fieldname": "goods_details",
@@ -74,14 +75,15 @@
   {
    "fieldname": "main_agent",
    "fieldtype": "Data",
-   "label": "Consignee",
+   "label": "Agent",
    "read_only": 1
   },
   {
    "fieldname": "branch_agent",
    "fieldtype": "Link",
    "label": "Branch Agent",
-   "options": "Employee"
+   "options": "Employee",
+   "reqd": 1
   },
   {
    "fieldname": "amended_from",
@@ -129,13 +131,15 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Destination",
-   "options": "Destination"
+   "options": "Destination",
+   "reqd": 1
   },
   {
    "fieldname": "delivery_person",
    "fieldtype": "Link",
    "label": "Delivery Person",
-   "options": "Delivery Person"
+   "options": "Delivery Person",
+   "reqd": 1
   },
   {
    "fieldname": "section_break_efsn",
@@ -164,7 +168,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-18 14:09:59.646458",
+ "modified": "2024-11-19 17:27:29.420539",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Goods Receipt",

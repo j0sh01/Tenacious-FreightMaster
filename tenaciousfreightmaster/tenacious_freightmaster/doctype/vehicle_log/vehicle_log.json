@@ -111,9 +111,10 @@
    "fieldtype": "Column Break"
   }
  ],
+ "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-19 12:40:41.741612",
+ "modified": "2024-11-19 16:17:32.723173",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Vehicle Log",
