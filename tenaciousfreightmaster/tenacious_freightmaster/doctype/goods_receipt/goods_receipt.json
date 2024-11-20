@@ -8,6 +8,7 @@
  "field_order": [
   "section_break_i17a",
   "customer",
+  "customer_phone",
   "main_agent",
   "delivery_note",
   "shipment_manifest",
@@ -138,8 +139,7 @@
    "fieldname": "delivery_person",
    "fieldtype": "Link",
    "label": "Delivery Person",
-   "options": "Delivery Person",
-   "reqd": 1
+   "options": "Delivery Person"
   },
   {
    "fieldname": "section_break_efsn",
@@ -163,12 +163,19 @@
   {
    "fieldname": "column_break_mysz",
    "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "customer.mobile_no",
+   "fieldname": "customer_phone",
+   "fieldtype": "Data",
+   "label": "Customer Phone",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-19 17:27:29.420539",
+ "modified": "2024-11-20 15:21:48.972628",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Goods Receipt",

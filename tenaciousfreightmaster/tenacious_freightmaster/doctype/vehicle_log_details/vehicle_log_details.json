@@ -46,7 +46,9 @@
    "fetch_from": "reference_shipment_manifest.destination",
    "fieldname": "destination",
    "fieldtype": "Link",
+   "in_filter": 1,
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Destination",
    "options": "Destination"
   }
@@ -54,7 +56,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-11-18 11:06:41.374288",
+ "modified": "2024-11-20 14:54:23.670507",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Vehicle Log Details",
