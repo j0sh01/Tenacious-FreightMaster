@@ -92,8 +92,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Manifest Left\nShipped",
-   "read_only": 1
+   "options": "Manifest Left\nShipped"
   },
   {
    "fieldname": "destination",
@@ -113,7 +112,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-17 16:44:30.142724",
+ "modified": "2024-11-21 23:58:16.711904",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "Left Goods Log",
