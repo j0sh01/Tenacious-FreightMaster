@@ -5,7 +5,7 @@
    "label": "Sales Invoice"
   }
  ],
- "content": "[{\"id\":\"zY0A7nhRlW\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">KECHE CARGO</span>\",\"col\":12}},{\"id\":\"c9f6dRpFFl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Goods Receipt\",\"col\":3}},{\"id\":\"Qlag1kbfzA\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"XEeKqoMm-U\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>TODAY STATS</b></span>\",\"col\":12}},{\"id\":\"Ks13CiAREp\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Today Shipment Manifest\",\"col\":4}},{\"id\":\"9VZRKVqe0N\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Today Sales Invoice\",\"col\":4}},{\"id\":\"7JmNkdTfaQ\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Today Vehicle Log\",\"col\":4}},{\"id\":\"VRsbUOIJ_j\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Today Left Goods Log\",\"col\":4}},{\"id\":\"vYKExjK3Sd\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Today Delivery Note\",\"col\":4}},{\"id\":\"v4X4WgKOir\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"YrDruwJsbS\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>OVERALL STATS</b></span>\",\"col\":12}},{\"id\":\"IWs5mYz9fB\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Shipment Manifest\",\"col\":4}},{\"id\":\"tFRfN09-mD\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Sales Invoice\",\"col\":4}},{\"id\":\"GHlOPXe8Dp\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Vehicle Log\",\"col\":4}},{\"id\":\"yRGHVkwKza\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Left Goods Log\",\"col\":4}},{\"id\":\"hvquZr_9su\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Delivery Note\",\"col\":4}},{\"id\":\"VnQHvdorwx\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Goods Receipt Available in Warehouse\",\"col\":4}},{\"id\":\"1pD5PjNKrJ\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Customers\",\"col\":4}},{\"id\":\"bOuYX10FiV\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"SlEgggcHd3\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Sales Invoice\",\"col\":12}}]",
+ "content": "[{\"id\":\"zY0A7nhRlW\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">KECHE CARGO</span>\",\"col\":12}},{\"id\":\"c9f6dRpFFl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Goods Receipt\",\"col\":3}},{\"id\":\"Qlag1kbfzA\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"XEeKqoMm-U\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>TODAY STATS</b></span>\",\"col\":12}},{\"id\":\"Ks13CiAREp\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Today Shipment Manifest\",\"col\":4}},{\"id\":\"9VZRKVqe0N\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Today Sales Invoice\",\"col\":4}},{\"id\":\"7JmNkdTfaQ\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Today Vehicle Log\",\"col\":4}},{\"id\":\"VRsbUOIJ_j\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Today Left Goods Log\",\"col\":4}},{\"id\":\"vYKExjK3Sd\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Today Delivery Note\",\"col\":4}},{\"id\":\"v4X4WgKOir\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"YrDruwJsbS\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>OVERALL STATS</b></span>\",\"col\":12}},{\"id\":\"IWs5mYz9fB\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Shipment Manifest\",\"col\":4}},{\"id\":\"tFRfN09-mD\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Sales Invoice\",\"col\":4}},{\"id\":\"GHlOPXe8Dp\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Vehicle Log\",\"col\":4}},{\"id\":\"yRGHVkwKza\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Left Goods Log\",\"col\":4}},{\"id\":\"hvquZr_9su\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Delivery Note\",\"col\":4}},{\"id\":\"VnQHvdorwx\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Goods Receipt Available in Warehouse\",\"col\":4}},{\"id\":\"1pD5PjNKrJ\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Active Customers\",\"col\":4}},{\"id\":\"bOuYX10FiV\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"SlEgggcHd3\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Sales Invoice\",\"col\":12}},{\"id\":\"0pFszgif-4\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Mauzo\",\"col\":4}}]",
  "creation": "2024-11-17 13:10:09.914027",
  "custom_blocks": [],
  "docstatus": 0,
@@ -18,7 +18,7 @@
  "is_hidden": 0,
  "label": "KECHE CARGO",
  "links": [],
- "modified": "2024-11-18 18:02:59.352046",
+ "modified": "2024-11-22 11:28:37.387134",
  "modified_by": "Administrator",
  "module": "Tenacious FreightMaster",
  "name": "KECHE CARGO",
@@ -42,6 +42,10 @@
   {
    "label": "Today Shipment Manifest",
    "number_card_name": "Shipment Manifest-1"
+  },
+  {
+   "label": "Mauzo",
+   "number_card_name": "Sales Invoice-1"
   },
   {
    "label": "Vehicle Log",
