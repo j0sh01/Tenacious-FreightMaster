@@ -36,6 +36,7 @@ def create_delivery_note(doc_name):
     delivery_note = frappe.new_doc("Delivery Note")
     delivery_note.customer = doc.customer
     delivery_note.destination = doc.destination
+    delivery_note.delivery_person = doc.delivery_person 
     delivery_note.posting_date = doc.received_date  # Use the Goods Receipt date
 
     # Copy items from Goods Receipt to Delivery Note

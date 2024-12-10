@@ -123,5 +123,3 @@ def create_or_update_vehicle_log(doc, method):
         # Update the reference_vehicle_log field in Shipment Manifest
         doc.reference_vehicle_log = vehicle_log_doc.name
         doc.db_set("reference_vehicle_log", vehicle_log_doc.name)  # save the update immediately
-
-# Hook this function to be called on submit of the Shipment Manifest

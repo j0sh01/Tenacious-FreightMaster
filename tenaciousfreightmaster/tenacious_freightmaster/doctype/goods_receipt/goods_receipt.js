@@ -3,9 +3,7 @@
 
 frappe.ui.form.on('Goods Receipt', {
     onload: function(frm) {
-        // Check if the main_agent field is empty
         if (!frm.doc.main_agent) {
-            // Fetch the full name from the User Doctype
             frappe.db.get_value('User', frappe.session.user, 'full_name', (r) => {
                 if (r && r.full_name) {
                     frm.set_value('main_agent', r.full_name);
@@ -122,30 +120,27 @@ frappe.ui.form.on("Goods Receipt", {
 
 frappe.ui.form.on('Goods Receipt', {
     before_save: function(frm) {
-        calculate_total_amount(frm); // Ensure the total is updated before saving
+        calculate_total_amount(frm);
     }
 });
 
 frappe.ui.form.on('Goods Details', {
     amount: function(frm, cdt, cdn) {
-        calculate_total_amount(frm); // Recalculate when a row's shipping charge changes
+        calculate_total_amount(frm); 
     },
     amount_remove: function(frm) {
-        calculate_total_amount(frm); // Recalculate when a row is removed
+        calculate_total_amount(frm); 
     }
 });
 
-// Helper function to calculate total amount
 function calculate_total_amount(frm) {
     let total = 0;
 
-    // Sum up shipping charges from the child table
     if (frm.doc.goods_details) {
         frm.doc.goods_details.forEach(row => {
             total += row.amount || 0;
         });
     }
 
-    // Update the parent field
     frm.set_value('total_amount', total);
 }

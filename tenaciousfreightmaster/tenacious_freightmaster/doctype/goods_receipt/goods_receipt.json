@@ -87,16 +87,6 @@
    "reqd": 1
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Goods Receipt",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
-  },
-  {
    "fetch_from": "branch_agent.employee_name",
    "fieldname": "branch_agent_name",
    "fieldtype": "Data",
