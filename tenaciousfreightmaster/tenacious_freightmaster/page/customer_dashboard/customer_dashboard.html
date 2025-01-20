@@ -1,0 +1,249 @@
+<style>
+    /* General Dashboard Styling */
+    .dashboard {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Section Headings */
+    .dashboard h3 {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-size: 1.5em;
+        color: #333;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 5px;
+    }
+    
+    /* Table Styling */
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        overflow-x: auto;
+    }
+    
+    .table th, .table td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+        font-size: 0.9em;
+        white-space: nowrap;
+    }
+    
+    .table th {
+        background-color: #007bff;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    
+    .table td {
+        background-color: #fff;
+        color: #333;
+    }
+    
+    /* Hover Effects */
+    .table tbody tr:hover {
+        background-color: #f1f1f1;
+        cursor: pointer;
+    }
+    
+    /* Alternating Row Colors */
+    .table tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+    
+    /* Highlight Important Data */
+    .table td:nth-child(5), /* Total/Charges Column */
+    .table td:nth-child(6), /* Outstanding/Customer Column */
+    .table td:nth-child(7) /* Status Column */ {
+        font-weight: bold;
+    }
+    
+    /* Status Color Coding */
+    .table td.status {
+        text-transform: capitalize;
+    }
+    
+    .table td.status:contains("Paid") {
+        color: green;
+    }
+    
+    .table td.status:contains("Unpaid") {
+        color: red;
+    }
+    
+    .table td.status:contains("Pending") {
+        color: orange;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .dashboard {
+            padding: 10px;
+        }
+    
+        .dashboard h3 {
+            font-size: 1.2em;
+        }
+    
+        .table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+    
+        .table th, .table td {
+            padding: 8px;
+            font-size: 0.8em;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .dashboard h3 {
+            font-size: 1em;
+        }
+    
+        .table th, .table td {
+            padding: 6px;
+            font-size: 0.7em;
+        }
+    }
+    </style>
+    
+    <div class="dashboard">
+        <!-- Goods Receipts Section -->
+        <div id="goods-receipt-section" class="dashboard-section">
+            <h3>Goods Receipts</h3>
+            <table class="table table-bordered" id="goods-receipt-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Customer</th>
+                        <th>Received Date</th>
+                        <th>Destination</th>
+                        <th>Total Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <!-- Delivery Note Section -->
+        <div id="delivery-notes-section" class="dashboard-section">
+            <h3>Delivery Notes</h3>
+            <table class="table table-bordered" id="delivery-notes-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Customer</th>
+                        <th>Posting Date</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    
+        <!-- Sales Invoices Section -->
+        <div id="sales-invoice-section" class="dashboard-section">
+            <h3>Sales Invoices</h3>
+            <table class="table table-bordered" id="sales-invoice-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Customer</th>
+                        <th>Posting Date</th>
+                        <th>Due Date</th>
+                        <th>Total</th>
+                        <th>Outstanding</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    
+        <!-- Payment Entries Section -->
+        <div id="payment-entry-section" class="dashboard-section">
+            <h3>Payment Entries</h3>
+            <table class="table table-bordered" id="payment-entry-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Party</th>
+                        <th>Type</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    
+        <!-- Shipment Manifests Section -->
+        <div id="shipment-manifest-section" class="dashboard-section">
+            <h3>Shipment Manifests</h3>
+            <table class="table table-bordered" id="shipment-manifest-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>Vehicle</th>
+                        <th>Customer</th>
+                        <th>Destination</th>
+                        <th>Charges</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    
+        <!-- Vehicle Logs Section -->
+        <div id="vehicle-log-section" class="dashboard-section">
+            <h3>Vehicle Logs</h3>
+            <table class="table table-bordered" id="vehicle-log-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Vehicle ID</th>
+                        <th>Driver</th>
+                        <th>VL Date</th>
+                        <th>Reference Manifest</th>
+                        <th>Manifest Date</th>
+                        <th>Shipping</th>
+                        <th>Customer</th>
+                        <th>Destination</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    
+        <!-- Left Goods Logs Section -->
+        <div id="left-goods-log-section" class="dashboard-section">
+            <h3>Left Goods Logs</h3>
+            <table class="table table-bordered" id="left-goods-log-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Customer</th>
+                        <th>Date</th>
+                        <th>Destination</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    
